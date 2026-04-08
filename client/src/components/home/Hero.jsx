@@ -21,7 +21,7 @@ function Hero() {
         {/* Navbar */}
         <nav className="z-50 flex items-center justify-between w-full py-4 px-6 md:px-16 lg:px-24 xl:px-40 text-sm">
           <a href="#">
-            <img src="/logo.svg" alt="logo" className='h-11 w-auto' />
+            <img src="/logo.png" alt="logo" className='h-11 w-auto' />
           </a>
 
           <div className="hidden md:flex items-center gap-8 transition duration-500 text-slate-800">
@@ -40,7 +40,7 @@ function Hero() {
             </Link>
             <Link to='/app' className='hidden md:block px-8 py-2 bg-green-500 hover:bg-green-700 active:scale-95 transition-all rounded-full text-white' hidden={!user}>
               Dashboard
-            </Link> 
+            </Link>
           </div>
 
           <button onClick={() => setMenuOpen(true)} className="md:hidden active:scale-90 transition" >

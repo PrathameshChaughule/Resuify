@@ -62,7 +62,7 @@ function Login() {
         <p onClick={() => setState(prev => prev === "login" ? "register" : "login")} className="text-gray-500 text-sm mt-3">{state === "login" ? "Don't have an account?" : "Already have an account?"} <a href="#" className="text-green-500 hover:underline">click here</a></p>
         <div className="flex items-center justify-center mt-5 mb-5">
           <div
-            onClick={() => window.open('http://localhost:3000/auth/google', '_self')}
+            onClick={() => window.open('https://resuify-server.onrender.com/auth/google', '_self')}
             className="flex items-center gap-3 px-13 py-2 border border-gray-300 rounded-lg shadow-sm bg-white hover:bg-gray-50 transition duration-200 cursor-pointer"
           >
             <img

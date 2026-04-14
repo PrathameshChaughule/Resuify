@@ -288,10 +288,11 @@ function ResumeBuilder() {
               </div>
             </div>
 
-            <div id="resume">
-              <ResumePreview data={resumeData} template={resumeData.template} accentColor={resumeData.accent_color} />
+            <div className='flex justify-center'>
+              <div className='scale-75 sm:scale-80 md:scale-90 lg:scale-100 origin-top'>
+                <ResumePreview data={resumeData} template={resumeData.template} accentColor={resumeData.accent_color} />
+              </div>
             </div>
-            {/* Resume Preview */}
           </div>
         </div>
       </div>

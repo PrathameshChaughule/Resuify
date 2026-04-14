@@ -15,7 +15,13 @@ const PORT = process.env.PORT || 3000
 await connectDB()
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: [
+        "https://resuify.vercel.app",
+        "http://localhost:5173"
+    ],
+    credentials: true
+}))
 
 
 app.get('/', (req, res) => res.send("Server is up...."))

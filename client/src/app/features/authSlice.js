@@ -21,7 +21,7 @@ const authSlice = createSlice({
             state.loading = action.payload
         }
     }
-})
+}) 
 
 export const { login, logout, setLoading } = authSlice.actions
 

@@ -14,6 +14,8 @@ import { useSelector } from 'react-redux'
 import api from '../configs/api'
 import toast from 'react-hot-toast'
 import AtsJobDescription from '../components/AtsJobDescription'
+import AtsScoreCard from '../components/AtsScoreCard'
+import AtsComparisonCard from '../components/AtsComparisonCard'
 
 function ResumeBuilder() {
   const { resumeId } = useParams()
@@ -37,6 +39,9 @@ function ResumeBuilder() {
   const [disabled, setDisabled] = useState(false)
   const [generatingIndex, setGeneratingIndex] = useState(-1)
   const [isGenerating, setIsGenerating] = useState(false)
+  const [description, setDescription] = useState('')
+  const [atsData, setAtsData] = useState(null)
+  const [atsComparison, setAtsComparison] = useState(null)
 
   const loadExistingResume = async () => {
     try {
@@ -245,12 +250,22 @@ function ResumeBuilder() {
                   <SkillsForm data={resumeData.skills} onChange={(data) => setResumeData(prev => ({ ...prev, skills: data }))} />
                 )}
                 {activeSection.id === 'jobDescription' && (
-                  <AtsJobDescription setDisabled={setDisabled} disabled={disabled} data={resumeData} setResumeData={setResumeData} />
+                  <AtsJobDescription setDisabled={setDisabled} disabled={disabled} resumeData={resumeData} setResumeData={setResumeData} description={description} setDescription={setDescription} setAtsData={setAtsData} atsData={atsData} setAtsComparison={setAtsComparison} atsComparison={atsComparison} />
                 )}
 
               </div>
               <button className='bg-gradient-to-br from-green-100 to-green-200 ring-green-300 text-green-600 ring hover:ring-green-400 transition-all rounded-md px-6 py-2 mt-6 text-sm' >{saving ? "Saving..." : "Saved Changes"}</button>
             </div>
+
+            {(activeSection.id === 'jobDescription' && atsData) &&
+              <div className='bg-white rounded-lg shadow-sm border border-gray-200 p-6 mt-4 pt-1'>
+                <AtsScoreCard data={atsData} />
+              </div>}
+
+            {(activeSection.id === 'jobDescription' && atsComparison) &&
+              <div className='bg-white rounded-lg shadow-sm border border-gray-200 p-6 mt-4 pt-1'>
+                <AtsComparisonCard data={atsComparison} />
+              </div>}
           </div>
 
 
